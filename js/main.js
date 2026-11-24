@@ -10,10 +10,12 @@
    hacia CONTACT_EMAIL. */
 const CONFIG = {
   FORMSPREE_ID: '',
-  CONTACT_EMAIL: 'tu-email@ejemplo.com',
+  CONTACT_EMAIL: 'matisk.90@gmail.com',
   TYPED_PHRASES: [
     'APIs REST con Spring Boot',
     'microservicios con Kafka',
+    'asistentes con IA basados en RAG',
+    'herramientas en Go y Python',
     'SPAs con Angular',
     'login seguro con OAuth2 y Keycloak',
     'soluciones en AWS',

@@ -1,6 +1,6 @@
 # Portafolio · Matías Sack
 
-Portafolio personal de desarrollador Java Full Stack. HTML, CSS y JavaScript puros, sin frameworks ni build.
+Portafolio personal de desarrollador Backend y Full Stack. HTML, CSS y JavaScript puros, sin frameworks ni build.
 
 ```
 index.html        estructura y contenido
@@ -9,15 +9,12 @@ js/main.js        tema, menú, contadores, carrusel y formulario
 assets/           favicon y CV en PDF
 ```
 
-## Antes de publicar (buscá `EDITAR` en el código)
+## Datos a mantener
 
-- `assets/cv-matias-sack.pdf`: agregá tu CV.
-- LinkedIn: reemplazá `TU-USUARIO` en `index.html` (2 lugares).
-- Sobre mí: texto y números (`data-target` de cada contador).
-- Certificaciones: nombres, años y links de verificación.
+- `assets/cv-matias-sack.pdf`: reemplazalo cuando actualices el CV (mismo nombre).
+- Certificaciones, formación y cursos: sección `#certificaciones` de `index.html`.
 - `js/main.js` → `CONFIG`:
-  - `FORMSPREE_ID`: creá un form gratis en https://formspree.io y pegá el ID para que el formulario envíe mails.
-  - `CONTACT_EMAIL`: se usa como respaldo (abre el cliente de correo) mientras no haya ID de Formspree.
+  - `FORMSPREE_ID`: si creás un form gratis en https://formspree.io y pegás el ID, el formulario envía el mail directo; mientras esté vacío abre el cliente de correo hacia `CONTACT_EMAIL`.
 
 ## Ver en local
 
