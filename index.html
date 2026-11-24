@@ -1,0 +1,609 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Matías Sack · Desarrollador Java Full Stack</title>
+  <meta name="description" content="Portafolio de Matías Sack, desarrollador Java Full Stack: Spring Boot, microservicios, Angular, Kafka, Redis y AWS.">
+  <meta name="theme-color" content="#f6f3ee">
+
+  <!-- Open Graph: así se ve el link al compartirlo en LinkedIn / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Matías Sack · Desarrollador Java Full Stack">
+  <meta property="og:description" content="Spring Boot, microservicios, Angular, Kafka y AWS. Mirá mis proyectos.">
+  <meta property="og:url" content="https://msack22.github.io/portafolio/">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Aplica el tema guardado antes de pintar, para evitar el parpadeo -->
+  <script>
+    document.documentElement.classList.add('js');
+    try {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    } catch (e) {}
+  </script>
+</head>
+<body>
+
+  <!-- Íconos SVG reutilizables -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm18 2-10 7L2 6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 4h6v6M20 4 10 14M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></symbol>
+    <symbol id="i-badge" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="m8.5 14 -1.5 8 5-3 5 3-1.5-8"/></g></symbol>
+  </svg>
+
+  <a class="skip" href="#main">Saltar al contenido</a>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#inicio" class="nav__brand" aria-label="Inicio">
+        <span class="nav__logo">ms<span class="accent">.</span></span>
+      </a>
+
+      <nav aria-label="Principal">
+        <ul class="nav__links" id="nav-links">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#habilidades">Habilidades</a></li>
+          <li><a href="#certificaciones">Certificaciones</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Cambiar tema">
+          <svg class="icon icon--sun"><use href="#i-sun"/></svg>
+          <svg class="icon icon--moon"><use href="#i-moon"/></svg>
+        </button>
+        <button class="icon-btn nav__burger" id="nav-burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ INICIO ============ -->
+    <section class="hero" id="inicio">
+      <div class="container hero__grid">
+        <div class="hero__text">
+          <p class="eyebrow"><span class="dot"></span> Disponible para nuevas oportunidades</p>
+          <h1 class="hero__title">
+            Hola, soy <span class="accent">Matías Sack</span>.<br>
+            Desarrollador Java Full&nbsp;Stack.
+          </h1>
+          <p class="hero__lead">
+            Construyo <span class="typed" id="typed" aria-live="polite">APIs REST con Spring Boot</span><span class="caret" aria-hidden="true"></span>
+          </p>
+          <p class="hero__sub">
+            Backend sólido en Java y Spring, frontends modernos en Angular y la infraestructura
+            para que todo funcione junto: mensajería, caché, seguridad y cloud.
+          </p>
+          <div class="hero__cta">
+            <a href="#proyectos" class="btn btn--primary">Ver proyectos <svg class="icon"><use href="#i-arrow"/></svg></a>
+            <!-- EDITAR: dejá tu CV en assets/cv-matias-sack.pdf -->
+            <a href="assets/cv-matias-sack.pdf" class="btn btn--ghost" download>
+              <svg class="icon"><use href="#i-download"/></svg> Descargar CV
+            </a>
+          </div>
+          <ul class="socials">
+            <li><a href="https://github.com/msack22" target="_blank" rel="noopener" aria-label="GitHub"><svg class="icon"><use href="#i-github"/></svg></a></li>
+            <!-- EDITAR: tu URL de LinkedIn -->
+            <li><a href="https://www.linkedin.com/in/TU-USUARIO" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="icon"><use href="#i-linkedin"/></svg></a></li>
+            <li><a href="#contacto" aria-label="Contacto"><svg class="icon"><use href="#i-mail"/></svg></a></li>
+          </ul>
+        </div>
+
+        <div class="hero__code" aria-hidden="true">
+          <div class="window">
+            <div class="window__bar">
+              <span></span><span></span><span></span>
+              <p class="window__title">Developer.java</p>
+            </div>
+<pre class="code"><code><span class="c-kw">public record</span> <span class="c-type">Developer</span>(
+    <span class="c-type">String</span> name,
+    <span class="c-type">String</span> role,
+    <span class="c-type">List</span>&lt;<span class="c-type">String</span>&gt; stack
+) {}
+
+<span class="c-kw">var</span> me = <span class="c-kw">new</span> <span class="c-type">Developer</span>(
+    <span class="c-str">"Matías Sack"</span>,
+    <span class="c-str">"Java Full Stack"</span>,
+    <span class="c-type">List</span>.<span class="c-fn">of</span>(
+        <span class="c-str">"Spring Boot"</span>, <span class="c-str">"Angular"</span>,
+        <span class="c-str">"Kafka"</span>, <span class="c-str">"Redis"</span>, <span class="c-str">"AWS"</span>
+    )
+);
+
+me.<span class="c-fn">build</span>(<span class="c-str">"algo que escale"</span>); <span class="c-com">// ✓</span></code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SOBRE MÍ ============ -->
+    <section class="section" id="sobre-mi">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="section__num">01</p>
+          <h2 class="section__title">Sobre mí</h2>
+        </header>
+
+        <div class="about">
+          <div class="about__text reveal">
+            <!-- EDITAR: contá tu historia en 2 o 3 párrafos -->
+            <p>
+              Soy desarrollador <strong>Java Full Stack</strong> con foco en backend. Me gusta diseñar
+              sistemas que sean fáciles de entender y de mantener: código limpio, arquitectura clara y
+              decisiones justificadas.
+            </p>
+            <p>
+              Trabajo con <strong>Spring Boot</strong>, <strong>Spring Security</strong> y
+              <strong>JPA/Hibernate</strong> del lado del servidor, <strong>Angular</strong> en el
+              frontend, y herramientas como <strong>Kafka</strong>, <strong>Redis</strong>,
+              <strong>Keycloak</strong> y <strong>Docker</strong> para conectar todo. Actualmente
+              profundizo en <strong>AWS</strong> y arquitecturas cloud.
+            </p>
+            <p>
+              Busco sumarme a un equipo donde pueda aportar en todo el ciclo: desde el modelado del
+              dominio hasta el despliegue.
+            </p>
+          </div>
+
+          <!-- EDITAR: ajustá los números (data-target) a tu realidad -->
+          <ul class="stats reveal">
+            <li class="stat">
+              <span class="stat__value"><span class="counter" data-target="3">3</span>+</span>
+              <span class="stat__label">años programando</span>
+            </li>
+            <li class="stat">
+              <span class="stat__value"><span class="counter" data-target="5">5</span></span>
+              <span class="stat__label">proyectos publicados</span>
+            </li>
+            <li class="stat">
+              <span class="stat__value"><span class="counter" data-target="20">20</span>+</span>
+              <span class="stat__label">tecnologías en uso</span>
+            </li>
+            <li class="stat">
+              <span class="stat__value"><span class="counter" data-target="2">2</span></span>
+              <span class="stat__label">certificaciones</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HABILIDADES ============ -->
+    <section class="section section--alt" id="habilidades">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="section__num">02</p>
+          <h2 class="section__title">Habilidades</h2>
+        </header>
+
+        <div class="skills">
+          <article class="skill-card reveal">
+            <h3 class="skill-card__title"><span class="skill-card__tag">&lt;/&gt;</span> Backend</h3>
+            <ul class="chips">
+              <li>Java 21</li><li>Spring Boot</li><li>Spring Security</li><li>OAuth2 / OIDC</li>
+              <li>Spring Cloud Gateway</li><li>JPA / Hibernate</li><li>REST APIs</li><li>Microservicios</li>
+              <li>Maven</li>
+            </ul>
+          </article>
+
+          <article class="skill-card reveal">
+            <h3 class="skill-card__title"><span class="skill-card__tag">{ }</span> Frontend</h3>
+            <ul class="chips">
+              <li>Angular</li><li>TypeScript</li><li>RxJS / Signals</li><li>React</li>
+              <li>HTML5</li><li>CSS3 / SCSS</li><li>JavaScript</li>
+            </ul>
+          </article>
+
+          <article class="skill-card reveal">
+            <h3 class="skill-card__title"><span class="skill-card__tag">db</span> Datos y mensajería</h3>
+            <ul class="chips">
+              <li>MySQL</li><li>PostgreSQL</li><li>Flyway</li><li>Redis</li>
+              <li>Apache Kafka</li><li>Embeddings / búsqueda semántica</li>
+            </ul>
+          </article>
+
+          <article class="skill-card reveal">
+            <h3 class="skill-card__title"><span class="skill-card__tag">☁</span> Cloud y DevOps</h3>
+            <ul class="chips">
+              <li>AWS</li><li>Lambda / Serverless</li><li>Docker</li><li>Docker Compose</li>
+              <li>Keycloak</li><li>Git / GitHub</li><li>GitHub Actions</li>
+            </ul>
+          </article>
+
+          <article class="skill-card reveal">
+            <h3 class="skill-card__title"><span class="skill-card__tag">✓</span> Calidad</h3>
+            <ul class="chips">
+              <li>JUnit 5</li><li>Mockito</li><li>ArchUnit</li><li>Resilience4j</li>
+              <li>Clean Code</li><li>SOLID</li>
+            </ul>
+          </article>
+
+          <article class="skill-card reveal">
+            <h3 class="skill-card__title"><span class="skill-card__tag">⌘</span> Arquitectura</h3>
+            <ul class="chips">
+              <li>DDD</li><li>Transactional Outbox</li><li>BFF</li><li>Event-driven</li>
+              <li>Patrones de diseño</li><li>Clean Architecture</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CERTIFICACIONES ============ -->
+    <section class="section" id="certificaciones">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="section__num">03</p>
+          <h2 class="section__title">Certificaciones</h2>
+        </header>
+
+        <!-- EDITAR: reemplazá por tus certificaciones reales y sus links de verificación -->
+        <div class="certs">
+          <article class="cert reveal">
+            <div class="cert__icon"><svg class="icon"><use href="#i-badge"/></svg></div>
+            <div class="cert__body">
+              <p class="cert__issuer">Amazon Web Services</p>
+              <h3 class="cert__name">AWS Certified Solutions Architect – Associate</h3>
+              <p class="cert__meta"><span class="pill pill--progress">En preparación</span></p>
+            </div>
+          </article>
+
+          <article class="cert reveal">
+            <div class="cert__icon"><svg class="icon"><use href="#i-badge"/></svg></div>
+            <div class="cert__body">
+              <p class="cert__issuer">Institución</p>
+              <h3 class="cert__name">Nombre de la certificación</h3>
+              <p class="cert__meta">2025 · <a href="#" target="_blank" rel="noopener">Ver credencial <svg class="icon icon--sm"><use href="#i-ext"/></svg></a></p>
+            </div>
+          </article>
+
+          <article class="cert reveal">
+            <div class="cert__icon"><svg class="icon"><use href="#i-badge"/></svg></div>
+            <div class="cert__body">
+              <p class="cert__issuer">Institución</p>
+              <h3 class="cert__name">Nombre de la certificación</h3>
+              <p class="cert__meta">2024 · <a href="#" target="_blank" rel="noopener">Ver credencial <svg class="icon icon--sm"><use href="#i-ext"/></svg></a></p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROYECTOS ============ -->
+    <section class="section section--alt" id="proyectos">
+      <div class="container">
+        <header class="section__head section__head--row reveal">
+          <div>
+            <p class="section__num">04</p>
+            <h2 class="section__title">Proyectos</h2>
+          </div>
+          <div class="carousel__controls">
+            <button class="icon-btn icon-btn--outline" type="button" data-carousel="prev" aria-label="Proyecto anterior">
+              <svg class="icon icon--flip"><use href="#i-arrow"/></svg>
+            </button>
+            <button class="icon-btn icon-btn--outline" type="button" data-carousel="next" aria-label="Proyecto siguiente">
+              <svg class="icon"><use href="#i-arrow"/></svg>
+            </button>
+          </div>
+        </header>
+
+        <div class="carousel reveal" aria-roledescription="carrusel" aria-label="Proyectos">
+          <div class="carousel__track" id="carousel-track" tabindex="0">
+
+            <!-- ---------- NutriPlan ---------- -->
+            <article class="slide" aria-roledescription="diapositiva" aria-label="1 de 4">
+              <div class="slide__cover cover--nutri">
+                <div class="cover__stack">
+                  <!-- Mini diagrama de arquitectura -->
+                  <svg class="arch" viewBox="0 0 320 220" role="img" aria-label="Arquitectura de NutriPlan: Angular, gateway, tres microservicios, Kafka y Redis">
+                    <g class="arch__lines">
+                      <path d="M160 46v22"/><path d="M160 96v14M60 110h200M60 110v14M160 110v14M260 110v14"/>
+                      <path d="M60 152v16h200v-16M160 168v8"/>
+                    </g>
+                    <g class="arch__node arch__node--front"><rect x="100" y="18" width="120" height="28" rx="8"/><text x="160" y="36">Angular 22</text></g>
+                    <g class="arch__node arch__node--edge"><rect x="80" y="68" width="160" height="28" rx="8"/><text x="160" y="86">Gateway · BFF</text></g>
+                    <g class="arch__node"><rect x="14" y="124" width="92" height="28" rx="8"/><text x="60" y="142">recipe</text></g>
+                    <g class="arch__node"><rect x="114" y="124" width="92" height="28" rx="8"/><text x="160" y="142">planner</text></g>
+                    <g class="arch__node"><rect x="214" y="124" width="92" height="28" rx="8"/><text x="260" y="142">pricing</text></g>
+                    <g class="arch__node arch__node--bus"><rect x="90" y="176" width="140" height="28" rx="14"/><text x="160" y="194">Kafka · Redis</text></g>
+                  </svg>
+                  <!-- Vista ilustrativa del plan semanal (datos de ejemplo) -->
+                  <div class="plan" aria-label="Ejemplo de plan semanal">
+                    <div class="plan__head"><b>Plan semanal</b><span>objetivo 1 650 kcal</span></div>
+                    <div class="plan__grid">
+                      <span class="plan__day">Lun</span><span class="plan__meal">Avena con frutos rojos</span><span class="plan__meal">Pollo al limón con arroz</span><span class="plan__kcal">1 612</span>
+                      <span class="plan__day">Mar</span><span class="plan__meal">Tostadas con palta</span><span class="plan__meal">Wok de verduras y tofu</span><span class="plan__kcal">1 580</span>
+                      <span class="plan__day">Mié</span><span class="plan__meal">Yogur con granola</span><span class="plan__meal">Merluza al horno</span><span class="plan__kcal">1 644</span>
+                    </div>
+                    <div class="plan__bar"><span style="--w:97%"></span></div>
+                  </div>
+                </div>
+                <p class="cover__note">Ilustración con datos de ejemplo</p>
+              </div>
+              <div class="slide__body">
+                <p class="slide__kicker"><span class="pill pill--accent">Destacado</span> Microservicios · Full Stack</p>
+                <h3 class="slide__title">NutriPlan</h3>
+                <p class="slide__desc">
+                  Una app para organizar la alimentación de la semana con el objetivo de bajar de peso.
+                  Calcula tus calorías según tu perfil (metabolismo basal, actividad y déficit), arma el
+                  plan automáticamente con recetas saludables y genera la lista de compras con el costo
+                  estimado en supermercados argentinos.
+                </p>
+                <div class="slide__links">
+                  <a class="btn btn--primary btn--sm" href="https://github.com/msack22/nutriplan" target="_blank" rel="noopener">
+                    <svg class="icon"><use href="#i-github"/></svg> Ver código
+                  </a>
+                </div>
+              </div>
+              <div class="slide__details">
+                <div class="slide__col">
+                <h4 class="slide__sub">Cómo funciona</h4>
+                <ul class="slide__points">
+                  <li>El usuario inicia sesión con <strong>Keycloak</strong> a través de un <strong>gateway BFF</strong> (OAuth2 + PKCE): el navegador nunca ve los tokens.</li>
+                  <li><strong>recipe-service</strong> gestiona 133 recetas con búsqueda clásica y <strong>semántica con embeddings</strong> (“algo liviano para la cena”).</li>
+                  <li><strong>planner-service</strong> genera el plan priorizando proteína y variedad, calcula macros, adherencia y la lista de compras agrupada por góndola.</li>
+                  <li><strong>pricing-service</strong> consulta precios todos los lunes y puede desplegarse como <strong>AWS Lambda</strong>; los servicios se comunican por eventos en <strong>Kafka</strong>.</li>
+                </ul>
+                <p class="slide__challenge"><strong>Desafío técnico:</strong> mantener los datos consistentes entre microservicios sin transacciones distribuidas. Lo resolví con <em>Transactional Outbox</em>, consumidores idempotentes y dead-letter topics.</p>
+                </div>
+                <div class="slide__col">
+                <h4 class="slide__sub">Tecnologías y por qué</h4>
+                <dl class="stack">
+                  <div><dt>Java 21 + Spring Boot 4</dt><dd>Para microservicios es el ecosistema más completo: seguridad OAuth2, JPA, Kafka, caché y resiliencia vienen integrados y probados. Frente a Node o Python, el tipado fuerte y las transacciones de Spring dan más seguridad en un dominio con muchas reglas (calorías, macros, porciones). Además es el stack que más piden las empresas.</dd></div>
+                  <div><dt>Angular 22 + TypeScript</dt><dd>Trae todo resuelto (rutas, formularios, HTTP, inyección de dependencias) sin sumar librerías sueltas como pasa con React. Su estructura de servicios e inyección se parece a Spring, así que el código front y back sigue las mismas ideas.</dd></div>
+                  <div><dt>Keycloak (OAuth2 / OIDC)</dt><dd>Login, roles y SSO estándar sin programar la autenticación a mano: más seguro que un login propio y gratis frente a Auth0.</dd></div>
+                  <div><dt>Kafka</dt><dd>Los servicios se avisan cambios con eventos durables y reprocesables. Si uno se cae no se pierde nada, cosa que con llamadas REST encadenadas no pasa.</dd></div>
+                  <div><dt>Redis · MySQL</dt><dd>Redis guarda sesiones y caché en memoria (respuestas rápidas). MySQL, una base por servicio, porque recetas, ingredientes y planes son datos claramente relacionales.</dd></div>
+                  <div><dt>Ollama · Docker Compose</dt><dd>Embeddings locales sin pagar una API externa, y todo el entorno se levanta con un solo comando.</dd></div>
+                </dl>
+                </div>
+              </div>
+            </article>
+
+            <!-- ---------- iRacing Dashboard ---------- -->
+            <article class="slide" aria-roledescription="diapositiva" aria-label="2 de 4">
+              <div class="slide__cover cover--racing">
+                <div class="shots">
+                  <button class="shot shot--main" type="button" data-lightbox="assets/img/iracing-dashboard.jpg" data-caption="Dashboard principal: rating, autos y pistas, gasto por categoría">
+                    <img src="assets/img/iracing-dashboard.jpg" alt="Pantalla principal del iRacing Dashboard con datos de demostración" loading="lazy" width="1400" height="596">
+                  </button>
+                  <button class="shot shot--second" type="button" data-lightbox="assets/img/iracing-overlap.jpg" data-caption="Análisis de overlap: qué pistas conviene comprar para correr más series">
+                    <img src="assets/img/iracing-overlap.jpg" alt="Pantalla de análisis de overlap con series seleccionadas" loading="lazy" width="1295" height="593">
+                  </button>
+                </div>
+                <p class="cover__note">Capturas con datos de demostración · clic para ampliar</p>
+              </div>
+              <div class="slide__body">
+                <p class="slide__kicker">Dashboard · Full Stack</p>
+                <h3 class="slide__title">iRacing Dashboard</h3>
+                <p class="slide__desc">
+                  En el simulador iRacing cada auto y pista se compra por separado y cada serie exige
+                  contenido distinto. Este dashboard reúne garage, pistas, series e historial de carreras
+                  en un solo lugar y responde una pregunta concreta: <em>¿qué conviene comprar para correr
+                  más series con menos plata?</em>
+                </p>
+                <div class="slide__links">
+                  <a class="btn btn--primary btn--sm" href="https://github.com/msack22/iracing-dashboard" target="_blank" rel="noopener">
+                    <svg class="icon"><use href="#i-github"/></svg> Ver código
+                  </a>
+                </div>
+              </div>
+              <div class="slide__details">
+                <div class="slide__col">
+                <h4 class="slide__sub">Cómo funciona</h4>
+                <ul class="slide__points">
+                  <li>Se conecta a la <strong>API oficial de iRacing</strong> o funciona <strong>offline con datos mock</strong>, así cualquiera puede probarlo sin cuenta.</li>
+                  <li>El <strong>análisis de overlap</strong> cruza las series elegidas con el calendario de la temporada y ordena las pistas según cuántas carreras habilitan.</li>
+                  <li>El <strong>Shop Advisor</strong> arma una lista de compra y muestra el gasto acumulado por categoría.</li>
+                </ul>
+                <p class="slide__challenge"><strong>Desafío técnico:</strong> ignorar las semanas que ya pasaron en la temporada para que las recomendaciones solo incluyan compras que todavía se pueden aprovechar.</p>
+                </div>
+                <div class="slide__col">
+                <h4 class="slide__sub">Tecnologías y por qué</h4>
+                <dl class="stack">
+                  <div><dt>Python 3.11 + FastAPI</dt><dd>El trabajo pesado es consumir la API de iRacing y cruzar datos (series × pistas × semanas), y Python lo hace con muy poco código. FastAPI agrega validación automática y documentación OpenAPI; para una herramienta personal, Spring hubiera sido más estructura de la necesaria.</dd></div>
+                  <div><dt>SQLite</dt><dd>Un solo usuario y sin servidor de base que mantener: el archivo viaja con el proyecto y alcanza.</dd></div>
+                  <div><dt>React 18 + TypeScript + Vite</dt><dd>Para un dashboard con muchos componentes chicos y reutilizables (tarjetas, filtros, gráficos), React es liviano y flexible. TypeScript evita errores al manejar las respuestas de la API y Vite recarga al instante.</dd></div>
+                  <div><dt>Tailwind CSS + shadcn/ui</dt><dd>Componentes accesibles y consistentes sin escribir CSS desde cero, con control total del diseño.</dd></div>
+                </dl>
+                </div>
+              </div>
+            </article>
+
+            <!-- ---------- Operación Fuego de Quasar ---------- -->
+            <article class="slide" aria-roledescription="diapositiva" aria-label="3 de 4">
+              <div class="slide__cover cover--quasar">
+                <svg class="sats" viewBox="0 0 320 220" role="img" aria-label="Trilateración: tres satélites y la nave en la intersección de sus distancias">
+                  <circle class="sats__ring" cx="70" cy="70" r="90"/>
+                  <circle class="sats__ring" cx="250" cy="60" r="110"/>
+                  <circle class="sats__ring" cx="190" cy="190" r="70"/>
+                  <circle class="sats__sat" cx="70" cy="70" r="6"/>
+                  <circle class="sats__sat" cx="250" cy="60" r="6"/>
+                  <circle class="sats__sat" cx="190" cy="190" r="6"/>
+                  <text class="sats__label" x="70" y="56">kenobi</text>
+                  <text class="sats__label" x="250" y="46">skywalker</text>
+                  <text class="sats__label" x="190" y="212">sato</text>
+                  <circle class="sats__ship" cx="152" cy="126" r="8"/>
+                </svg>
+                <pre class="cover__code"><code>POST /topsecret
+{ "position": { "x": -100.0, "y": 75.5 },
+  "message": "este es un mensaje secreto" }</code></pre>
+              </div>
+              <div class="slide__body">
+                <p class="slide__kicker">API REST · Backend</p>
+                <h3 class="slide__title">Operación Fuego de Quasar</h3>
+                <p class="slide__desc">
+                  Una API que ubica una nave a partir de lo que reciben tres satélites: la distancia de
+                  cada uno a la nave y un mensaje que llega a cada satélite con partes incompletas. Con
+                  esos datos calcula la posición y reconstruye el mensaje original.
+                </p>
+                <div class="slide__links">
+                  <a class="btn btn--primary btn--sm" href="https://github.com/msack22/operacionFuegoQuasar" target="_blank" rel="noopener">
+                    <svg class="icon"><use href="#i-github"/></svg> Ver código
+                  </a>
+                </div>
+              </div>
+              <div class="slide__details">
+                <div class="slide__col">
+                <h4 class="slide__sub">Cómo funciona</h4>
+                <ul class="slide__points">
+                  <li>Calcula la posición por <strong>trilateración</strong>: la nave está donde se cruzan las tres distancias.</li>
+                  <li>Reconstruye el mensaje <strong>combinando los fragmentos</strong> de cada satélite y corrigiendo el desfasaje entre ellos.</li>
+                  <li><code>POST /topsecret</code> recibe los tres satélites juntos; <code>/topsecret_split</code> permite enviarlos de a uno y consultar cuando estén todos.</li>
+                </ul>
+                <p class="slide__challenge"><strong>Desafío técnico:</strong> separar la lógica en servicios independientes (posición y mensaje) detrás de interfaces, para poder testear cada cálculo por separado.</p>
+                </div>
+                <div class="slide__col">
+                <h4 class="slide__sub">Tecnologías y por qué</h4>
+                <dl class="stack">
+                  <div><dt>Java</dt><dd>Los cálculos de trilateración trabajan con decimales y coordenadas: el tipado estático y los tipos numéricos precisos de Java evitan los errores silenciosos que aparecen en lenguajes dinámicos. Además es el lenguaje del puesto al que apuntaba el desafío.</dd></div>
+                  <div><dt>Spring Boot</dt><dd>Exponer los endpoints REST, validar el JSON y separar controller y services con inyección de dependencias sale casi sin configuración, y la lógica queda aislada para testearla.</dd></div>
+                  <div><dt>Maven</dt><dd>Build reproducible con el wrapper (<code>mvnw</code>): cualquiera lo compila sin instalar nada aparte.</dd></div>
+                </dl>
+                </div>
+              </div>
+            </article>
+
+            <!-- ---------- Escuela ---------- -->
+            <article class="slide" aria-roledescription="diapositiva" aria-label="4 de 4">
+              <div class="slide__cover cover--school">
+                <div class="layers" role="img" aria-label="Capas de Clean Architecture: API, aplicación, dominio e infraestructura">
+                  <span>API · rutas</span><span>Aplicación · casos de uso</span><span>Dominio</span><span>Infraestructura · scrapers</span>
+                </div>
+                <div class="feed" aria-hidden="true">
+                  <div class="feed__item"><i></i><span>Nuevo concurso publicado</span><b>hoy</b></div>
+                  <div class="feed__item"><i></i><span>Cierre de inscripción</span><b>3 días</b></div>
+                </div>
+                <p class="cover__note">Ilustración con datos de ejemplo</p>
+              </div>
+              <div class="slide__body">
+                <p class="slide__kicker">Clean Architecture · Full Stack</p>
+                <h3 class="slide__title">Concursos Escolares</h3>
+                <p class="slide__desc">
+                  Los concursos departamentales de escuelas se publican en distintos sitios y es fácil
+                  perderse uno. Este sistema los recolecta automáticamente, los centraliza en un solo
+                  lugar y avisa cuando aparece uno nuevo.
+                </p>
+                <div class="slide__links">
+                  <a class="btn btn--primary btn--sm" href="https://github.com/msack22/Escuela" target="_blank" rel="noopener">
+                    <svg class="icon"><use href="#i-github"/></svg> Ver código
+                  </a>
+                </div>
+              </div>
+              <div class="slide__details">
+                <div class="slide__col">
+                <h4 class="slide__sub">Cómo funciona</h4>
+                <ul class="slide__points">
+                  <li>Un <strong>scraper por sitio</strong> detrás de una interfaz común: páginas estáticas con Cheerio y páginas dinámicas con un navegador headless.</li>
+                  <li>Un <strong>scheduler</strong> recorre las fuentes periódicamente, descarta lo ya visto y registra cada ejecución.</li>
+                  <li>Los concursos se guardan en <strong>MySQL</strong> con migraciones versionadas y se consultan desde un frontend en <strong>React</strong>.</li>
+                </ul>
+                <p class="slide__challenge"><strong>Desafío técnico:</strong> que agregar un sitio nuevo sea escribir un scraper y nada más. Por eso el dominio no depende de ninguna fuente concreta (principios SOLID).</p>
+                </div>
+                <div class="slide__col">
+                <h4 class="slide__sub">Tecnologías y por qué</h4>
+                <dl class="stack">
+                  <div><dt>Node.js + TypeScript</dt><dd>El scraping consiste en esperar muchas respuestas de red, y el modelo asincrónico de Node lo resuelve con poco consumo. Las mejores herramientas para controlar navegadores (Playwright, Puppeteer) nacieron en este ecosistema. TypeScript da el tipado que le faltaría a JavaScript solo.</dd></div>
+                  <div><dt>Fastify + Zod</dt><dd>API rápida y liviana, con validación de datos de entrada tipada de punta a punta.</dd></div>
+                  <div><dt>Playwright · Cheerio · node-cron</dt><dd>Cheerio para HTML estático (rápido), Playwright cuando el sitio arma la página con JavaScript, y node-cron para correr todo de forma programada sin infraestructura extra.</dd></div>
+                  <div><dt>Prisma + MySQL</dt><dd>Esquema tipado y migraciones versionadas: los cambios en la base quedan en el repo y TypeScript avisa si el código no coincide con las tablas.</dd></div>
+                  <div><dt>React + Vite</dt><dd>Interfaz simple de listados y filtros, con un mismo lenguaje (TypeScript) en front y back.</dd></div>
+                </dl>
+                </div>
+              </div>
+            </article>
+
+          </div>
+          <div class="carousel__dots" id="carousel-dots" role="tablist" aria-label="Elegir proyecto"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTO ============ -->
+    <section class="section" id="contacto">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="section__num">05</p>
+          <h2 class="section__title">Contacto</h2>
+        </header>
+
+        <div class="contact">
+          <div class="contact__intro reveal">
+            <p class="contact__lead">¿Tenés una propuesta o querés charlar sobre un proyecto?</p>
+            <p>Escribime y te respondo a la brevedad. También me encontrás en:</p>
+            <ul class="contact__list">
+              <li><a href="https://github.com/msack22" target="_blank" rel="noopener"><svg class="icon"><use href="#i-github"/></svg> github.com/msack22</a></li>
+              <!-- EDITAR -->
+              <li><a href="https://www.linkedin.com/in/TU-USUARIO" target="_blank" rel="noopener"><svg class="icon"><use href="#i-linkedin"/></svg> LinkedIn</a></li>
+            </ul>
+          </div>
+
+          <form class="form reveal" id="contact-form" novalidate>
+            <div class="form__row">
+              <div class="field">
+                <label for="f-name">Nombre</label>
+                <input id="f-name" name="name" type="text" autocomplete="name" required minlength="2">
+                <p class="field__error" aria-live="polite"></p>
+              </div>
+              <div class="field">
+                <label for="f-email">Email</label>
+                <input id="f-email" name="email" type="email" autocomplete="email" required>
+                <p class="field__error" aria-live="polite"></p>
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-subject">Asunto</label>
+              <input id="f-subject" name="subject" type="text" required minlength="3">
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            <div class="field">
+              <label for="f-message">Mensaje</label>
+              <textarea id="f-message" name="message" rows="5" required minlength="10"></textarea>
+              <p class="field__error" aria-live="polite"></p>
+            </div>
+            <!-- Campo trampa anti-spam: los humanos no lo ven -->
+            <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button class="btn btn--primary btn--block" type="submit">Enviar mensaje <svg class="icon"><use href="#i-arrow"/></svg></button>
+            <p class="form__status" id="form-status" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="year">2026</span> Matías Sack. Hecho a mano con HTML, CSS y JavaScript.</p>
+      <a href="#inicio" class="footer__top">Volver arriba ↑</a>
+    </div>
+  </footer>
+
+  <!-- Visor de imágenes -->
+  <dialog class="lightbox" id="lightbox" aria-label="Imagen ampliada">
+    <button class="icon-btn lightbox__close" type="button" aria-label="Cerrar">✕</button>
+    <img class="lightbox__img" alt="">
+    <p class="lightbox__caption"></p>
+  </dialog>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
